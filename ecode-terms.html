@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Conditions d'Utilisation – eCode</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
+  <style>
+    :root { --navy:#0D1B2A; --green:#1B5E20; --green-mid:#2E7D32; --green-light:#43A047; --accent:#FF6D00; --accent2:#00C853; --bg:#F1F8E9; --card:#ffffff; --text:#1a1a2e; --muted:#6B7A99; --border:#DCEDC8; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Sora',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; }
+    header { background:linear-gradient(135deg,#1B5E20 0%,#2E7D32 60%,#388E3C 100%); color:white; padding:60px 24px 50px; text-align:center; position:relative; overflow:hidden; }
+    header::before { content:''; position:absolute; top:-60px; right:-60px; width:280px; height:280px; border-radius:50%; background:rgba(255,109,0,0.08); pointer-events:none; }
+    .logo-badge { display:inline-flex; align-items:center; gap:10px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:50px; padding:8px 20px; margin-bottom:24px; font-size:13px; letter-spacing:1px; text-transform:uppercase; color:#FFE0B2; font-weight:600; }
+    header h1 { font-family:'DM Serif Display',serif; font-size:clamp(1.8rem,5vw,2.8rem); font-weight:400; margin-bottom:12px; }
+    header h1 em { color:#FFE0B2; font-style:normal; }
+    header p { font-size:14px; color:rgba(255,255,255,0.55); font-weight:300; }
+    .doc-nav { background:white; border-bottom:1px solid var(--border); padding:12px 24px; text-align:center; font-size:13px; }
+    .doc-nav a { color:var(--green-light); text-decoration:none; margin:0 12px; font-weight:600; }
+    .doc-nav a:hover { text-decoration:underline; }
+    main { max-width:820px; margin:0 auto; padding:48px 24px 80px; }
+    .intro-box { background:white; border-left:4px solid var(--accent); border-radius:0 12px 12px 0; padding:24px 28px; margin-bottom:40px; box-shadow:0 2px 12px rgba(0,0,0,0.05); font-size:15px; color:#334; line-height:1.8; }
+    .article { background:var(--card); border-radius:16px; padding:32px 36px; margin-bottom:20px; box-shadow:0 2px 16px rgba(27,94,32,0.07); border:1px solid var(--border); position:relative; overflow:hidden; animation:fadeUp 0.5s ease both; }
+    .article::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--accent),var(--accent2)); opacity:0; transition:opacity 0.3s; }
+    .article:hover::before { opacity:1; }
+    .article-header { display:flex; align-items:center; gap:14px; margin-bottom:18px; }
+    .article-num { width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg,var(--accent),#FF9E40); color:white; font-size:13px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .article h2 { font-size:17px; font-weight:700; color:var(--navy); }
+    .article p { font-size:14.5px; color:#3a4560; margin-bottom:12px; }
+    .article p:last-child { margin-bottom:0; }
+    .article ul { list-style:none; padding:0; margin:10px 0; }
+    .article ul li { font-size:14.5px; color:#3a4560; padding:5px 0 5px 22px; position:relative; }
+    .article ul li::before { content:'▸'; position:absolute; left:0; color:var(--accent); font-size:12px; top:7px; }
+    .sub-label { font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; color:var(--green-mid); margin:16px 0 8px; }
+    .highlight { background:linear-gradient(135deg,#FFF3E0,#FFE0B2); border-radius:10px; padding:14px 18px; font-size:14px; font-weight:600; color:var(--navy); margin-top:14px; display:flex; align-items:center; gap:10px; }
+    .highlight::before { content:'📌'; font-size:15px; }
+    .highlight.green { background:linear-gradient(135deg,#F1F8E9,#DCEDC8); }
+    .highlight.green::before { content:'✅'; }
+    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px; }
+    .contact-item { background:var(--bg); border-radius:10px; padding:14px 16px; }
+    .contact-item .label { font-size:11px; text-transform:uppercase; letter-spacing:0.8px; color:var(--muted); font-weight:600; margin-bottom:4px; }
+    .contact-item .value { font-weight:600; color:var(--navy); font-size:14px; }
+    .contact-item .value a { color:var(--green-light); text-decoration:none; }
+    footer { text-align:center; padding:32px 24px; font-size:13px; color:var(--muted); border-top:1px solid var(--border); }
+    footer strong { color:var(--navy); }
+    footer .footer-links { margin-top:10px; }
+    footer .footer-links a { color:var(--green-light); text-decoration:none; margin:0 10px; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    .article:nth-child(1){animation-delay:.05s} .article:nth-child(2){animation-delay:.10s} .article:nth-child(3){animation-delay:.15s}
+    .article:nth-child(4){animation-delay:.20s} .article:nth-child(5){animation-delay:.25s} .article:nth-child(6){animation-delay:.30s}
+    .article:nth-child(7){animation-delay:.35s} .article:nth-child(8){animation-delay:.40s} .article:nth-child(9){animation-delay:.45s}
+    .article:nth-child(10){animation-delay:.50s} .article:nth-child(11){animation-delay:.55s}
+    @media(max-width:600px){ .article{padding:24px 20px;} .contact-grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo-badge"> eCode</div>
+  <h1>Conditions Générales <em>d'Utilisation</em></h1>
+  <p>Dernière mise à jour : <span id="date"></span></p>
+</header>
+<div class="doc-nav">
+  <a href="ecode-privacy.html">Politique de confidentialité</a>
+  <span style="color:#ccc">|</span>
+  <a href="ecode-terms.html">Conditions d'utilisation</a>
+  <span style="color:#ccc">|</span>
+  <a href="ecode-support.html">Support</a>
+</div>
+<main>
+  <div class="intro-box">Les présentes Conditions Générales d'Utilisation régissent l'accès et l'utilisation de l'application <strong>eCode</strong>, application de révision du code de la route. En créant un compte, l'utilisateur accepte sans réserve les présentes conditions.</div>
+
+  <div class="article">
+    <div class="article-header"><div class="article-num">1</div><h2>Présentation du service</h2></div>
+    <p>eCode est une application mobile de révision du code de la route proposant :</p>
+    <ul>
+      <li>17 modules de cours théoriques</li>
+      <li>Quiz et séries d'épreuves (séries 48 à 57 + poids lourds)</li>
+      <li>Les différents types de panneaux de signalisation</li>
+      <li>Barre de progression et autoévaluation</li>
+      <li>Lecture audio des cours</li>
+      <li>Liaison moniteur-élève pour suivi de progression</li>
+    </ul>
+    <div class="highlight green">Développé par Khaleb Savadogo — Burkina Faso</div>
+  </div>
+
+  <div class="article">
+    <div class="article-header"><div class="article-num">2</div><h2>Création de compte</h2></div>
+    <p>L'accès complet à eCode nécessite la création d'un compte avec une adresse email valide et un mot de passe.</p>
+    <p>L'utilisateur s'engage à fournir des informations exactes et à maintenir la confidentialité de ses identifiants.</p>
+    <div class="highlight">Un seul compte par personne est autorisé.</div>
+  </div>
+
+  <div class="article">
+    <div class="article-header"><div class="article-num">3</div><h2>Contenu gratuit et premium</h2></div>
+    <div class="sub-label">Gratuit</div>
+    <ul><li>Accès aux 17 modules de cours théoriques</li><li>Accès à quelques séries de quiz</li></ul>
+    <div class="sub-label">Premium (achats intégrés)</div>
+    <ul>
+      <li>Toutes les séries d'épreuves (séries 48 à 57 + poids lourds)</li>
+      <li>Lecture audio des cours</li>
+      <li>Liaison et suivi par un moniteur</li>
+      <li>Accès aux panneaux complets</li>
+    </ul>
+    <div class="highlight">Les achats intégrés sont définitifs et non remboursables, sauf conditions Apple applicables.</div>
+  </div>
+
+  <div class="article">
+    <div class="article-header"><div class="article-num">4</div><h2>Liaison moniteur-élève</h2></div>
+    <p>eCode permet à un élève de lier son compte à celui d'un moniteur utilisant <strong>eCodePro</strong>. Cette liaison est <strong>volontaire</strong>, initiée par l'élève.</p>
+    <p>Le moniteur lié peut consulter la progression de l'élève. L'élève peut rompre cette liaison à tout moment depuis son profil.</p>
+  </div>
+
+  <div class="article">
+    <div class="article-header"><div class="article-num">5</div><h2>Obligations de l'utilisateur</h2></div>
+    <ul>
+      <li>Utiliser l'application uniquement à des fins personnelles et légales</li>
+      <li>Ne pas partager son compte avec d'autres personnes</li>
+      <li>Ne pas tenter de contourner les mécanismes de paiement</li>
+      <li>Ne pas reproduire ou distribuer le contenu de l'application</li>
+    </ul>
+    <div class="highlight">Tout manquement peut entraîner la suspension ou suppression du compte.</div>
+  </div>
+
+  <div class="article">
+    <div class="article-header"><div class="article-num">6</div><h2>Propriété intellectuelle</h2></div>
+    <p>L'application eCode, ses contenus (cours, questions, panneaux, audio) et son code source sont la propriété exclusive de <strong>Khaleb Savadogo</strong>.</p>
+    <div class="highlight">Toute reproduction ou distribution non autorisée est strictement interdite.</div>
+  </div>
+
+  <div class="article">
+    <div class="article-header"><div class="article-num">7</div><h2>Disponibilité du service</h2></div>
+    <p>eCode s'efforce d'assurer une disponibilité continue. Des interruptions peuvent survenir pour maintenance ou mise à jour.</p>
+    <p>eCode ne peut être tenu responsable des pertes liées à une indisponibilité temporaire.</p>
+  </div>
+
+  <div class="article">
+    <div class="article-header"><div class="article-num">8</div><h2>Suppression de compte</h2></div>
+    <p>L'utilisateur peut supprimer son compte à tout moment depuis les paramètres de l'application. Les données seront effacées dans un délai de <strong>30 jours</strong>.</p>
+  </div>
+
+  <div class="article">
+    <div class="article-header"><div class="article-num">9</div><h2>Droit applicable et juridiction</h2></div>
+    <p>Les présentes CGU sont soumises au droit en vigueur au <strong>Burkina Faso</strong>.</p>
+    <p>En cas de litige, les parties rechercheront une solution amiable. À défaut, le litige sera porté devant les tribunaux compétents du Burkina Faso.</p>
+  </div>
+
+  <div class="article">
+    <div class="article-header"><div class="article-num">10</div><h2>Contact</h2></div>
+    <div class="contact-grid">
+      <div class="contact-item"><div class="label">Email</div><div class="value"><a href="mailto:votre-email@domaine.com">votre-email@domaine.com</a></div></div>
+      <div class="contact-item"><div class="label">Responsable</div><div class="value">Khaleb Savadogo</div></div>
+      <div class="contact-item"><div class="label">Application</div><div class="value">eCode</div></div>
+      <div class="contact-item"><div class="label">Pays</div><div class="value">Burkina Faso</div></div>
+    </div>
+  </div>
+</main>
+<footer>
+  <p>&copy; <span id="year"></span> <strong>eCode</strong> — Tous droits réservés</p>
+  <div class="footer-links">
+    <a href="ecode-privacy.html">Politique de confidentialité</a>
+    <a href="ecode-terms.html">Conditions d'utilisation</a>
+    <a href="ecode-support.html">Support</a>
+  </div>
+</footer>
+<script>
+  const now = new Date();
+  document.getElementById('date').textContent = now.toLocaleDateString('fr-FR',{year:'numeric',month:'long',day:'numeric'});
+  document.getElementById('year').textContent = now.getFullYear();
+</script>
+</body>
+</html>

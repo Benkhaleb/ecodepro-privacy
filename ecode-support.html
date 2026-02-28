@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Support – eCode</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
+  <style>
+    :root { --navy:#0D1B2A; --green:#1B5E20; --green-mid:#2E7D32; --green-light:#43A047; --accent:#00C853; --bg:#F1F8E9; --card:#ffffff; --muted:#6B7A99; --border:#DCEDC8; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Sora',sans-serif; background:var(--bg); color:var(--navy); line-height:1.75; }
+    header { background:linear-gradient(135deg,#1B5E20,#2E7D32,#388E3C); color:white; padding:60px 24px 50px; text-align:center; position:relative; overflow:hidden; }
+    header::before { content:''; position:absolute; top:-60px; right:-60px; width:300px; height:300px; border-radius:50%; background:rgba(0,200,83,0.07); pointer-events:none; }
+    .logo-badge { display:inline-flex; align-items:center; gap:10px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:50px; padding:8px 20px; margin-bottom:24px; font-size:13px; letter-spacing:1px; text-transform:uppercase; color:#B9F6CA; font-weight:600; }
+    header h1 { font-family:'DM Serif Display',serif; font-size:clamp(1.8rem,5vw,2.8rem); font-weight:400; margin-bottom:12px; }
+    header h1 em { color:#B9F6CA; font-style:normal; }
+    header p { font-size:14px; color:rgba(255,255,255,0.55); }
+    .doc-nav { background:white; border-bottom:1px solid var(--border); padding:12px 24px; text-align:center; font-size:13px; }
+    .doc-nav a { color:var(--green-light); text-decoration:none; margin:0 12px; font-weight:600; }
+    main { max-width:860px; margin:0 auto; padding:48px 24px 80px; }
+    .contact-hero { background:linear-gradient(135deg,#1B5E20,#2E7D32); border-radius:20px; padding:36px 40px; color:white; display:flex; align-items:center; justify-content:space-between; gap:24px; margin-bottom:40px; flex-wrap:wrap; }
+    .contact-hero h2 { font-size:20px; font-weight:700; margin-bottom:6px; }
+    .contact-hero p { font-size:14px; color:rgba(255,255,255,0.65); max-width:360px; }
+    .contact-btn { display:inline-flex; align-items:center; gap:8px; background:var(--accent); color:white; font-family:'Sora',sans-serif; font-size:14px; font-weight:700; padding:14px 28px; border-radius:50px; text-decoration:none; white-space:nowrap; transition:opacity 0.2s; }
+    .contact-btn:hover { opacity:0.88; }
+    .section-title { font-size:20px; font-weight:700; color:var(--navy); margin-bottom:20px; display:flex; align-items:center; gap:10px; }
+    .features-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:16px; margin-bottom:48px; }
+    .feature-card { background:var(--card); border-radius:14px; border:1px solid var(--border); padding:24px 20px; box-shadow:0 2px 10px rgba(27,94,32,0.06); transition:transform 0.2s,box-shadow 0.2s; animation:fadeUp 0.4s ease both; }
+    .feature-card:hover { transform:translateY(-3px); box-shadow:0 6px 20px rgba(27,94,32,0.12); }
+    .feature-icon { font-size:28px; margin-bottom:12px; }
+    .feature-card h3 { font-size:15px; font-weight:700; color:var(--navy); margin-bottom:6px; }
+    .feature-card p { font-size:13px; color:var(--muted); line-height:1.6; }
+    .faq-list { margin-bottom:48px; }
+    .faq-item { background:var(--card); border-radius:14px; border:1px solid var(--border); margin-bottom:12px; overflow:hidden; box-shadow:0 2px 10px rgba(27,94,32,0.05); animation:fadeUp 0.4s ease both; }
+    .faq-question { width:100%; background:none; border:none; padding:20px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; cursor:pointer; text-align:left; font-family:'Sora',sans-serif; }
+    .faq-question-text { font-size:15px; font-weight:600; color:var(--navy); }
+    .faq-icon { width:28px; height:28px; border-radius:8px; background:var(--bg); display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0; transition:transform 0.3s,background 0.2s; }
+    .faq-item.open .faq-icon { transform:rotate(45deg); background:var(--accent); color:white; }
+    .faq-answer { max-height:0; overflow:hidden; transition:max-height 0.35s ease,padding 0.2s; padding:0 24px; font-size:14.5px; color:#3a4560; line-height:1.8; }
+    .faq-item.open .faq-answer { max-height:400px; padding:0 24px 20px; }
+    .faq-answer ul { list-style:none; margin-top:8px; }
+    .faq-answer ul li { padding:4px 0 4px 20px; position:relative; }
+    .faq-answer ul li::before { content:'▸'; position:absolute; left:0; color:var(--accent); font-size:12px; top:6px; }
+    .contact-cards { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:48px; }
+    .contact-card { background:var(--card); border-radius:14px; border:1px solid var(--border); padding:24px; text-align:center; box-shadow:0 2px 10px rgba(27,94,32,0.05); }
+    .contact-card .icon { font-size:32px; margin-bottom:10px; }
+    .contact-card h3 { font-size:15px; font-weight:700; color:var(--navy); margin-bottom:6px; }
+    .contact-card p { font-size:13px; color:var(--muted); margin-bottom:14px; }
+    .contact-card a { display:inline-block; background:var(--green-mid); color:white; font-size:13px; font-weight:600; padding:10px 20px; border-radius:50px; text-decoration:none; font-family:'Sora',sans-serif; transition:background 0.2s; }
+    .contact-card a:hover { background:var(--green-light); }
+    footer { text-align:center; padding:32px 24px; font-size:13px; color:var(--muted); border-top:1px solid var(--border); }
+    footer strong { color:var(--navy); }
+    footer .footer-links { margin-top:10px; }
+    footer .footer-links a { color:var(--green-light); text-decoration:none; margin:0 10px; }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);} }
+    .faq-item:nth-child(1){animation-delay:.05s} .faq-item:nth-child(2){animation-delay:.10s} .faq-item:nth-child(3){animation-delay:.15s}
+    .faq-item:nth-child(4){animation-delay:.20s} .faq-item:nth-child(5){animation-delay:.25s} .faq-item:nth-child(6){animation-delay:.30s}
+    .faq-item:nth-child(7){animation-delay:.35s} .faq-item:nth-child(8){animation-delay:.40s}
+    .feature-card:nth-child(1){animation-delay:.05s} .feature-card:nth-child(2){animation-delay:.10s} .feature-card:nth-child(3){animation-delay:.15s}
+    .feature-card:nth-child(4){animation-delay:.20s} .feature-card:nth-child(5){animation-delay:.25s} .feature-card:nth-child(6){animation-delay:.30s}
+    .feature-card:nth-child(7){animation-delay:.35s} .feature-card:nth-child(8){animation-delay:.40s}
+    @media(max-width:600px){ .contact-hero{padding:28px 24px;} .contact-cards{grid-template-columns:1fr;} .features-grid{grid-template-columns:1fr 1fr;} }
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo-badge"> eCode</div>
+  <h1>Centre de <em>Support</em></h1>
+  <p>Besoin d'aide pour réviser votre code ? On est là.</p>
+</header>
+<div class="doc-nav">
+  <a href="ecode-privacy.html">Politique de confidentialité</a>
+  <span style="color:#ccc">|</span>
+  <a href="ecode-terms.html">Conditions d'utilisation</a>
+  <span style="color:#ccc">|</span>
+  <a href="ecode-support.html">Support</a>
+</div>
+<main>
+
+  <div class="contact-hero">
+    <div>
+      <h2>Un problème ou une question ?</h2>
+      <p>Notre équipe répond dans les 24 heures ouvrées. Décrivez votre problème et on vous aide.</p>
+    </div>
+    <a class="contact-btn" href="mailto:votre-email@domaine.com">✉️ Nous contacter</a>
+  </div>
+
+  <div class="section-title"><span>⚡</span> Ce que propose eCode</div>
+  <div class="features-grid">
+    <div class="feature-card"><div class="feature-icon">📚</div><h3>17 modules théoriques</h3><p>Tous les thèmes du code de la route organisés par modules progressifs.</p></div>
+    <div class="feature-card"><div class="feature-icon">📝</div><h3>Séries d'épreuves</h3><p>Séries 48 à 57 + poids lourds pour s'entraîner dans les conditions réelles.</p></div>
+    <div class="feature-card"><div class="feature-icon">🚦</div><h3>Panneaux de signalisation</h3><p>Tous les types de panneaux expliqués avec illustrations.</p></div>
+    <div class="feature-card"><div class="feature-icon">🔊</div><h3>Lecture audio</h3><p>Écoute les cours en audio pour réviser même sans regarder l'écran.</p></div>
+    <div class="feature-card"><div class="feature-icon">📊</div><h3>Suivi de progression</h3><p>Barre de progression, scores et autoévaluation pour mesurer vos avancées.</p></div>
+    <div class="feature-card"><div class="feature-icon">🎯</div><h3>Quiz par module</h3><p>Des quiz ciblés à la fin de chaque module pour valider vos acquis.</p></div>
+    <div class="feature-card"><div class="feature-icon">👨‍🏫</div><h3>Suivi moniteur</h3><p>Liez votre compte à votre moniteur pour qu'il suive votre progression.</p></div>
+    <div class="feature-card"><div class="feature-icon">🆓</div><h3>Gratuit pour démarrer</h3><p>Les cours théoriques et quelques quiz sont entièrement gratuits.</p></div>
+  </div>
+
+  <div class="section-title"><span>❓</span> Questions fréquentes</div>
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span class="faq-question-text">Comment créer mon compte eCode ?</span>
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-answer">Téléchargez eCode sur l'App Store, puis appuyez sur <strong>"Créer un compte"</strong>. Entrez votre nom, prénom, email et un mot de passe. Votre compte est actif immédiatement.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span class="faq-question-text">Qu'est-ce qui est gratuit dans eCode ?</span>
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-answer">
+        Les éléments suivants sont gratuits :
+        <ul><li>Les 17 modules de cours théoriques complets</li><li>Quelques séries de quiz pour s'entraîner</li></ul>
+        Le contenu premium (toutes les séries, lecture audio, suivi moniteur, panneaux complets) est accessible via achats intégrés.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span class="faq-question-text">Comment lier mon compte à mon moniteur ?</span>
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-answer">Dans votre profil, appuyez sur <strong>"Lier à un moniteur"</strong> et entrez le code de liaison fourni par votre moniteur (depuis eCodePro). Une fois liés, votre moniteur peut consulter votre progression. Vous pouvez rompre la liaison à tout moment.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span class="faq-question-text">Comment fonctionne la barre de progression ?</span>
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-answer">La barre de progression se met à jour automatiquement à chaque module ou quiz complété. Elle indique votre niveau de préparation global et vous aide à identifier les modules à revoir en priorité.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span class="faq-question-text">J'ai oublié mon mot de passe, que faire ?</span>
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-answer">Sur l'écran de connexion, appuyez sur <strong>"Mot de passe oublié"</strong> et entrez votre adresse email. Vous recevrez un lien de réinitialisation. Vérifiez aussi votre dossier spam si vous ne le trouvez pas.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span class="faq-question-text">Comment rembourser un achat intégré ?</span>
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-answer">Les remboursements sont gérés directement par Apple. Allez dans <strong>Réglages → Apple ID → Abonnements</strong> ou rendez-vous sur <strong>reportaproblem.apple.com</strong> pour faire une demande de remboursement.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span class="faq-question-text">Comment supprimer mon compte ?</span>
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-answer">Allez dans <strong>Profil → Paramètres → Supprimer mon compte</strong>. Vos données seront définitivement effacées dans un délai de 30 jours. Cette action est irréversible.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        <span class="faq-question-text">La lecture audio fonctionne-t-elle hors connexion ?</span>
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-answer">La lecture audio nécessite une connexion internet pour charger les fichiers. Une fois chargés, les modules peuvent être consultés en mode hors ligne jusqu'à fermeture de l'application.</div>
+    </div>
+
+  </div>
+
+  <div class="section-title"><span>📬</span> Nous contacter</div>
+  <div class="contact-cards">
+    <div class="contact-card">
+      <div class="icon">✉️</div>
+      <h3>Par email</h3>
+      <p>Pour toute question, signalement de bug ou demande de suppression de données.</p>
+      <a href="mailto:votre-email@domaine.com">Envoyer un email</a>
+    </div>
+    <div class="contact-card">
+      <div class="icon">📄</div>
+      <h3>Documents légaux</h3>
+      <p>Consultez notre politique de confidentialité et nos conditions d'utilisation.</p>
+      <a href="ecode-privacy.html">Voir les documents</a>
+    </div>
+  </div>
+
+</main>
+<footer>
+  <p>&copy; <span id="year"></span> <strong>eCode</strong> — Tous droits réservés</p>
+  <div class="footer-links">
+    <a href="ecode-privacy.html">Politique de confidentialité</a>
+    <a href="ecode-terms.html">Conditions d'utilisation</a>
+    <a href="ecode-support.html">Support</a>
+  </div>
+</footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  function toggle(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>
